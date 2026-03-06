@@ -64,3 +64,23 @@ void List::append(int d){
 }
 
 //Write List::remove() here
+
+void List::remove(int tardex){
+	if (tardex < 0 || tardex >= size){
+		return;
+	}
+	Node* sh = root;
+
+	if (tardex == 0){
+		root = sh->next;
+		delete sh;
+	}else {
+		for(int i = 0;i < tardex -1;i++){
+			sh = sh->next;
+		}
+		Node* dlt = sh->next;
+		sh->next = dlt->next;
+		delete dlt;
+	}
+	size--;
+}
